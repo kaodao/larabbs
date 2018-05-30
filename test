@@ -1,0 +1,10 @@
+$sms = app('easysms');
+try {
+    $sms->send(19905387372, [
+        'content'  => '【larabbs网】您的验证码是#code#。如非本人操作，请忽略本短信',
+    ]);
+} catch (\GuzzleHttp\Exception\ClientException $exception) {
+    $response = $exception->getResponse();
+    $result = json_decode($response->getBody()->getContents(), true);
+    dd($result);
+}
