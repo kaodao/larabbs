@@ -22,7 +22,7 @@ class VerificationCodesController extends Controller
 
         try {
             $result = $easySms->send($phone, [
-                'content'  =>  "【靠道bbs】您的验证码是#code#。如非本人操作，请忽略本短信"
+                'content'  =>  "【靠道bbs】您的验证码是{$code}。如非本人操作，请忽略本短信"
             ]);
         } catch (\GuzzleHttp\Exception\ClientException $exception) {
             $response = $exception->getResponse();
