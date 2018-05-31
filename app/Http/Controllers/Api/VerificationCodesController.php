@@ -44,6 +44,8 @@ class VerificationCodesController extends Controller
         $expiredAt = now()->addMinutes(10);
         // 缓存验证码 10分钟过期。
         \Cache::put($key, ['phone' => $phone, 'code' => $code], $expiredAt);
+        // 清除图片验证码缓存
+        \Cache::forget($request->captcha_key);
 
         return $this->response->array([
             'key' => $key,
