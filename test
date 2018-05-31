@@ -8,3 +8,26 @@ try {
     $result = json_decode($response->getBody()->getContents(), true);
     dd($result);
 }
+
+
+$accessToken = 'ACCESS_TOKEN';
+$openID = 'OPEN_ID';
+$driver = Socialite::driver('weixin');
+$driver->setOpenId($openID);
+$oauthUser = $driver->userFromToken($accessToken);
+
+wx8fd5a9137e526e02  appid
+866e98d2d950c34cd1f14c93d309c8c4 secret
+
+wx417b1e08e789b80d  appid 靠道哦
+90194c55f53ba92fbb790876a44c4595  secret靠道
+
+atuo 跳转地址,·
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx8fd5a9137e526e02&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect
+
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx8fd5a9137e526e02&redirect_uri=http://larabbs.test&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect
+
+
+请求以下链接获取 access_token：
+
+https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
