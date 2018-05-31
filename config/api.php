@@ -200,7 +200,7 @@ return [
     */
 
     'throttling' => [
-
+        'jwt' => 'Dingo\Api\Auth\Provider\JWT',
     ],
 
     /*
